@@ -16,27 +16,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import br.com.jwar.habittracker.data.model.Habit
-import br.com.jwar.habittracker.data.model.HabitPeriod
-import br.com.jwar.habittracker.data.model.HabitStatus
-import kotlinx.datetime.LocalDate
+import br.com.jwar.habittracker.domain.model.HabitStatus
 
 @Composable
 fun HabitItemHistory(
-    habit: Habit,
-    date: LocalDate,
-    period: HabitPeriod,
+    name: String,
+    dayShortName: String,
+    dayFullName: String,
+    status: HabitStatus,
     onStatusChange: (HabitStatus) -> Unit
 ) {
-    val day = remember(date, period) { period.getDayDisplayName(date) }
-    val status = habit.history[date.toString()] ?: HabitStatus.PENDING
-
     var showHabitStatus by remember { mutableStateOf(false) }
 
     if (showHabitStatus) {
         HabitStatusDialog(
-            habit = habit,
-            date = date,
+            name = name,
+            day = dayFullName,
             onStatusChanged = { updatedStatus ->
                 onStatusChange(updatedStatus)
                 showHabitStatus = false
@@ -55,7 +50,7 @@ fun HabitItemHistory(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = day,
+                text = dayShortName,
                 style = MaterialTheme.typography.body2,
                 textAlign = TextAlign.Center,
             )

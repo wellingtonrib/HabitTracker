@@ -15,14 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import br.com.jwar.habittracker.data.model.Habit
-import br.com.jwar.habittracker.data.model.HabitStatus
-import kotlinx.datetime.LocalDate
+import br.com.jwar.habittracker.domain.model.HabitStatus
 
 @Composable
 fun HabitStatusDialog(
-    habit: Habit,
-    date: LocalDate,
+    name: String,
+    day: String,
     onStatusChanged: (HabitStatus) -> Unit,
     onDismissRequest: () -> Unit
 ) {
@@ -35,10 +33,10 @@ fun HabitStatusDialog(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = habit.name,
+                    text = name,
                     style = MaterialTheme.typography.h6
                 )
-                Text(text = date.toString())
+                Text(text = day)
                 LazyRow(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {

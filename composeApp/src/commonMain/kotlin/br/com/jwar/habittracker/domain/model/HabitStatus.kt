@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.model
+package br.com.jwar.habittracker.domain.model
 
 enum class HabitStatus(val value: String) {
     DONE("✅"),

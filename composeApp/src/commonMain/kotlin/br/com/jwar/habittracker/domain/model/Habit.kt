@@ -1,8 +1,7 @@
-package br.com.jwar.habittracker.data.model
+package br.com.jwar.habittracker.domain.model
 
 data class Habit(
     val name: String,
-    val description: String,
     val history: HabitHistory = emptyMap()
 )
 
