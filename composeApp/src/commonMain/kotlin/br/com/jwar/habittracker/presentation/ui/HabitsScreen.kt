@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.presentation.ui.screens
+package br.com.jwar.habittracker.presentation.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +14,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,8 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import br.com.jwar.habittracker.domain.model.HabitPeriod
-import br.com.jwar.habittracker.presentation.HabitsIntent
-import br.com.jwar.habittracker.presentation.HabitsViewModel
 import br.com.jwar.habittracker.presentation.ui.components.HabitCreateDialog
 import br.com.jwar.habittracker.presentation.ui.components.HabitItem
 import br.com.jwar.habittracker.presentation.ui.components.HabitPeriodMenu
@@ -34,6 +33,10 @@ fun HabitsScreen(
     onIntent: (HabitsIntent) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
+
+    LaunchedEffect(Unit) {
+        onIntent(HabitsIntent.Init)
+    }
 
     var showNewHabitDialog by remember { mutableStateOf(false) }
     if (showNewHabitDialog) {
@@ -74,7 +77,12 @@ fun HabitsScreen(
                         history = habit.history,
                         period = state.selectedPeriod,
                     ) { day, status ->
-                        onIntent(HabitsIntent.ChangeHabitStatus(habit, day, status))
+                        onIntent(
+                            HabitsIntent.ChangeHabitStatus(
+                            habitId = habit.id,
+                            day = day,
+                            status = status,
+                        ))
                     }
                 }
             }

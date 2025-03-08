@@ -45,6 +45,12 @@ kotlin {
             implementation(libs.kotlin.date.time)
             implementation(libs.androidx.lifecycle.viewmodel)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.junit)
+            implementation(libs.mockk)
+            implementation(libs.kotlin.coroutines.test)
+        }
     }
 }
 

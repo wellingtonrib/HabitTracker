@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.presentation
+package br.com.jwar.habittracker.presentation.ui
 
 import br.com.jwar.habittracker.domain.model.Habit
 import br.com.jwar.habittracker.domain.model.HabitPeriod
