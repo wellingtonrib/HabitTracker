@@ -9,7 +9,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 @OptIn(KoinExperimentalAPI::class)
 @Composable
 @Preview
-fun App() {
+fun MainApp() {
     val viewModel = koinViewModel<HabitsViewModel>()
     val state by viewModel.state.collectAsState()
 
