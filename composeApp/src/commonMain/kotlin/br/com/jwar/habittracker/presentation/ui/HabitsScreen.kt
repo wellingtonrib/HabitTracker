@@ -15,7 +15,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,10 +28,9 @@ import br.com.jwar.habittracker.presentation.ui.components.HabitPeriodMenu
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HabitsScreen(
-    viewModel: HabitsViewModel,
+    state: HabitsState,
     onIntent: (HabitsIntent) -> Unit,
 ) {
-    val state by viewModel.state.collectAsState()
 
     LaunchedEffect(Unit) {
         onIntent(HabitsIntent.Init)
