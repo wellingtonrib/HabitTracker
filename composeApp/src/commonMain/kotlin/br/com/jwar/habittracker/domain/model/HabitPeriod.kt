@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.model
+package br.com.jwar.habittracker.domain.model
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.DateTimeUnit
@@ -9,10 +9,10 @@ import kotlinx.datetime.minus
 import kotlinx.datetime.plus
 import kotlinx.datetime.todayIn
 
-enum class HabitPeriod {
-    WEEK,
-    MONTH,
-    YEAR;
+enum class HabitPeriod(val displayName: String) {
+    WEEK("Week"),
+    MONTH("Month"),
+    YEAR("Year");
 
     fun getDays() = when (this) {
         WEEK -> getWeekDays()

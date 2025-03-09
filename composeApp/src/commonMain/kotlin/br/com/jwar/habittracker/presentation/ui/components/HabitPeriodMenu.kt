@@ -7,7 +7,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import br.com.jwar.habittracker.data.model.HabitPeriod
+import br.com.jwar.habittracker.domain.model.HabitPeriod
 
 @Composable
 fun HabitPeriodMenu(
