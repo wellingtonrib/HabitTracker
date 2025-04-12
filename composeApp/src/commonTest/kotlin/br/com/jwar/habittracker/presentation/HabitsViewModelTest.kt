@@ -1,6 +1,8 @@
+package br.com.jwar.habittracker.presentation
+
 import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
 import br.com.jwar.habittracker.data.datasource.HabitsMemoryDatasource
-import br.com.jwar.habittracker.data.repository.HabitsRepositoryImpl
+import br.com.jwar.habittracker.data.repository.HabitsDefaultRepository
 import br.com.jwar.habittracker.domain.model.HabitPeriod
 import br.com.jwar.habittracker.domain.model.HabitStatus
 import br.com.jwar.habittracker.domain.repository.HabitsRepository
@@ -34,7 +36,7 @@ class HabitsViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         habitsDataSource = HabitsMemoryDatasource()
-        habitsRepository = HabitsRepositoryImpl(habitsDataSource)
+        habitsRepository = HabitsDefaultRepository(habitsDataSource)
         subject = HabitsViewModel(habitsRepository)
     }
 
@@ -49,12 +51,14 @@ class HabitsViewModelTest {
 
         subject.handleIntent(HabitsIntent.Init)
 
-        val states = subject.state.take(1).toList()
-        assertEquals(1, states[0].habits.size)
+        val states = subject.state.take(2).toList()
+        assertEquals(1, states[1].habits.size)
     }
 
     @Test
     fun `on add habit intent should adds a new habit to data source`() = runBlocking(testDispatcher) {
+        subject.handleIntent(HabitsIntent.Init)
+
         subject.handleIntent(HabitsIntent.AddHabit("Drink water"))
 
         val states = subject.state.take(2).toList()
@@ -68,6 +72,7 @@ class HabitsViewModelTest {
         val date = LocalDate(2021, 1, 1)
         val status = HabitStatus.DONE
         val habitId = habitsRepository.addHabit(habitName).getOrNull()?.id.orEmpty()
+        subject.handleIntent(HabitsIntent.Init)
 
         subject.handleIntent(
             HabitsIntent.ChangeHabitStatus(
@@ -82,6 +87,8 @@ class HabitsViewModelTest {
 
     @Test
     fun `on change period intent should change selected period in state`() = runBlocking(testDispatcher) {
+        subject.handleIntent(HabitsIntent.Init)
+
         subject.handleIntent(HabitsIntent.ChangePeriod(HabitPeriod.YEAR))
 
         val states = subject.state.take(1).toList()

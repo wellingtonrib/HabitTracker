@@ -25,11 +25,7 @@ class HabitsViewModel(
 
     private fun onInit() = viewModelScope.launch {
         habitsRepository.getHabits().collect { result ->
-            if (result.isSuccess) {
-                _state.update { it.copy(habits = result.getOrDefault(emptyList())) }
-            } else {
-                // handle error
-            }
+            _state.update { it.copy(habits = result) }
         }
     }
 

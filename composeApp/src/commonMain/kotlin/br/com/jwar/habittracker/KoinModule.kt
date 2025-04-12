@@ -1,8 +1,9 @@
 package br.com.jwar.habittracker
 
+import br.com.jwar.habittracker.data.datasource.HabitsSQLDelightDatasource
 import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
-import br.com.jwar.habittracker.data.datasource.HabitsMemoryDatasource
-import br.com.jwar.habittracker.data.repository.HabitsRepositoryImpl
+import br.com.jwar.habittracker.data.repository.HabitsDefaultRepository
+import br.com.jwar.habittracker.di.platformModule
 import br.com.jwar.habittracker.domain.repository.HabitsRepository
 import br.com.jwar.habittracker.presentation.ui.HabitsViewModel
 import org.koin.compose.viewmodel.dsl.viewModelOf
@@ -16,6 +17,7 @@ fun initKoin(config: KoinAppDeclaration? = null) =
     startKoin {
         config?.invoke(this)
         modules(
+            platformModule(),
             provideDatasourceModule,
             provideRepositoryModule,
             provideViewModelModule,
@@ -23,11 +25,11 @@ fun initKoin(config: KoinAppDeclaration? = null) =
     }
 
 val provideRepositoryModule = module {
-    singleOf(::HabitsRepositoryImpl).bind(HabitsRepository::class)
+    singleOf(::HabitsDefaultRepository).bind(HabitsRepository::class)
 }
 
 val provideDatasourceModule = module {
-    singleOf(::HabitsMemoryDatasource).bind(HabitsLocalDatasource::class)
+    singleOf(::HabitsSQLDelightDatasource).bind(HabitsLocalDatasource::class)
 }
 
 val provideViewModelModule = module {
