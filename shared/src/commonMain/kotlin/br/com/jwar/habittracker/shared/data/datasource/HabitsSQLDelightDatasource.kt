@@ -1,10 +1,10 @@
-package br.com.jwar.habittracker.data.datasource
+package br.com.jwar.habittracker.shared.data.datasource
 
 import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList
-import br.com.jwar.habittracker.data.database.DatabaseDriverFactory
 import br.com.jwar.habittracker.database.AppDatabase
 import br.com.jwar.habittracker.database.HabitWithHistory
+import br.com.jwar.habittracker.shared.data.database.DatabaseDriverFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +14,7 @@ class HabitsSQLDelightDatasource(
     databaseDriverFactory: DatabaseDriverFactory
 ) : HabitsLocalDatasource {
     private val driver = databaseDriverFactory.create()
-    private val database = AppDatabase(driver)
+    private val database = AppDatabase.Companion(driver)
 
     override fun getHabits(): Flow<List<HabitWithHistory>> =
         database.habitQueries.habitWithHistory()

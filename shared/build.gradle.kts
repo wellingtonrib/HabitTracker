@@ -1,9 +1,18 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.android.kotlin.multiplatform.library)
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
+
+    sqldelight {
+        databases {
+            create("AppDatabase") {
+                packageName = "br.com.jwar.habittracker.database"
+            }
+        }
+    }
 
     // Target declarations - add or remove as needed below. These define
     // which platforms this KMP module supports.
@@ -67,6 +76,8 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
+                implementation(libs.sqldelight.android)
+                implementation(libs.koin.android)
             }
         }
 
@@ -77,6 +88,7 @@ kotlin {
                 // part of KMP’s default source set hierarchy. Note that this source set depends
                 // on common by default and will correctly pull the iOS artifacts of any
                 // KMP dependencies declared in commonMain.
+                implementation(libs.sqldelight.native)
             }
         }
 

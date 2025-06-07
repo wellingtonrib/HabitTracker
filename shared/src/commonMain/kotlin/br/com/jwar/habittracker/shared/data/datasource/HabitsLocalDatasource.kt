@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.datasource
+package br.com.jwar.habittracker.shared.data.datasource
 
 import br.com.jwar.habittracker.database.HabitWithHistory
 import kotlinx.coroutines.flow.Flow

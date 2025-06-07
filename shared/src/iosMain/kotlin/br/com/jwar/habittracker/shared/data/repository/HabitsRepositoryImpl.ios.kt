@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.repository
+package br.com.jwar.habittracker.shared.data.repository
 
 import platform.Foundation.NSUUID
 

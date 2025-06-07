@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.database
+package br.com.jwar.habittracker.shared.data.database
 
 import app.cash.sqldelight.db.SqlDriver
 

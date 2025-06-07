@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.data.database
+package br.com.jwar.habittracker.shared.data.database
 
 import android.content.Context
 import app.cash.sqldelight.db.SqlDriver
@@ -7,5 +7,5 @@ import br.com.jwar.habittracker.database.AppDatabase
 
 class AndroidDatabaseDriverFactory(private val context: Context) : DatabaseDriverFactory {
     override fun create(): SqlDriver =
-        AndroidSqliteDriver(AppDatabase.Schema, context, "habittracker.db")
+        AndroidSqliteDriver(AppDatabase.Companion.Schema, context, "habittracker.db")
 }

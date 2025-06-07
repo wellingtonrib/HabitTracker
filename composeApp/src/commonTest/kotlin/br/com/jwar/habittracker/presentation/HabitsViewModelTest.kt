@@ -1,10 +1,10 @@
 package br.com.jwar.habittracker.presentation
 
-import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
+import br.com.jwar.habittracker.shared.data.datasource.HabitsLocalDatasource
 import br.com.jwar.habittracker.data.datasource.HabitsMemoryDatasource
-import br.com.jwar.habittracker.data.repository.HabitsDefaultRepository
+import br.com.jwar.habittracker.shared.data.repository.HabitsDefaultRepository
 import br.com.jwar.habittracker.shared.domain.model.HabitPeriod
-import br.com.jwar.habittracker.domain.model.HabitStatus
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 import br.com.jwar.habittracker.shared.domain.repository.HabitsRepository
 import br.com.jwar.habittracker.presentation.ui.HabitsIntent
 import br.com.jwar.habittracker.presentation.ui.HabitsViewModel

@@ -1,6 +1,6 @@
-package br.com.jwar.habittracker.data.repository
+package br.com.jwar.habittracker.shared.data.repository
 
-import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
+import br.com.jwar.habittracker.shared.data.datasource.HabitsLocalDatasource
 import br.com.jwar.habittracker.database.HabitWithHistory
 import br.com.jwar.habittracker.shared.domain.model.Habit
 import br.com.jwar.habittracker.shared.domain.repository.HabitsRepository

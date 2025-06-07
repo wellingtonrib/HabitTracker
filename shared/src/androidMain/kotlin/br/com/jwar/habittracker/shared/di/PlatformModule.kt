@@ -1,7 +1,7 @@
-package br.com.jwar.habittracker.di
+package br.com.jwar.habittracker.shared.di
 
-import br.com.jwar.habittracker.data.database.AndroidDatabaseDriverFactory
-import br.com.jwar.habittracker.data.database.DatabaseDriverFactory
+import br.com.jwar.habittracker.shared.data.database.AndroidDatabaseDriverFactory
+import br.com.jwar.habittracker.shared.data.database.DatabaseDriverFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
