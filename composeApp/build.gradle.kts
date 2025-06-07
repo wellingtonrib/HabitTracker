@@ -46,6 +46,7 @@ kotlin {
             implementation(libs.sqldelight.native)
         }
         commonMain.dependencies {
+            implementation(projects.shared)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -106,4 +107,3 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
-

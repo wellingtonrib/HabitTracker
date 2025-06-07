@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import br.com.jwar.habittracker.domain.model.HabitHistory
-import br.com.jwar.habittracker.domain.model.HabitPeriod
-import br.com.jwar.habittracker.domain.model.HabitStatus
+import br.com.jwar.habittracker.shared.domain.model.HabitHistory
+import br.com.jwar.habittracker.shared.domain.model.HabitPeriod
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 import kotlinx.datetime.LocalDate
 
 @Composable

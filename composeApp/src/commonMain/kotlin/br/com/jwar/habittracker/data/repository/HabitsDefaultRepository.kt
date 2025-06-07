@@ -2,9 +2,9 @@ package br.com.jwar.habittracker.data.repository
 
 import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
 import br.com.jwar.habittracker.database.HabitWithHistory
-import br.com.jwar.habittracker.domain.model.Habit
-import br.com.jwar.habittracker.domain.model.HabitStatus
-import br.com.jwar.habittracker.domain.repository.HabitsRepository
+import br.com.jwar.habittracker.shared.domain.model.Habit
+import br.com.jwar.habittracker.shared.domain.repository.HabitsRepository
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.datetime.LocalDate

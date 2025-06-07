@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import br.com.jwar.habittracker.domain.model.HabitStatus
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 
 @Composable
 fun HabitItemHistory(

@@ -4,7 +4,7 @@ import br.com.jwar.habittracker.data.datasource.HabitsSQLDelightDatasource
 import br.com.jwar.habittracker.data.datasource.HabitsLocalDatasource
 import br.com.jwar.habittracker.data.repository.HabitsDefaultRepository
 import br.com.jwar.habittracker.di.platformModule
-import br.com.jwar.habittracker.domain.repository.HabitsRepository
+import br.com.jwar.habittracker.shared.domain.repository.HabitsRepository
 import br.com.jwar.habittracker.presentation.ui.HabitsViewModel
 import org.koin.compose.viewmodel.dsl.viewModelOf
 import org.koin.core.context.startKoin

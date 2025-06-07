@@ -1,7 +1,7 @@
-package br.com.jwar.habittracker.domain.repository
+package br.com.jwar.habittracker.shared.domain.repository
 
-import br.com.jwar.habittracker.domain.model.Habit
-import br.com.jwar.habittracker.domain.model.HabitStatus
+import br.com.jwar.habittracker.shared.domain.model.Habit
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.datetime.LocalDate
 

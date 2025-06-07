@@ -2,7 +2,7 @@ package br.com.jwar.habittracker.presentation.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.jwar.habittracker.domain.repository.HabitsRepository
+import br.com.jwar.habittracker.shared.domain.repository.HabitsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

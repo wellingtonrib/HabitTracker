@@ -1,7 +1,7 @@
 package br.com.jwar.habittracker.presentation.ui
 
-import br.com.jwar.habittracker.domain.model.HabitPeriod
-import br.com.jwar.habittracker.domain.model.HabitStatus
+import br.com.jwar.habittracker.shared.domain.model.HabitPeriod
+import br.com.jwar.habittracker.shared.domain.model.HabitStatus
 import kotlinx.datetime.LocalDate
 
 sealed class HabitsIntent {

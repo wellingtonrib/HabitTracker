@@ -1,4 +1,4 @@
-package br.com.jwar.habittracker.domain.model
+package br.com.jwar.habittracker.shared.domain.model
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.DateTimeUnit
