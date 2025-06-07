@@ -1,6 +1,5 @@
-package br.com.jwar.habittracker
+package br.com.jwar.habittracker.di
 
-import br.com.jwar.habittracker.di.viewModelModule
 import br.com.jwar.habittracker.shared.di.dataModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
